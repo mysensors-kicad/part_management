@@ -1,5 +1,0 @@
-(fp_lib_table
-  (lib (name mysensors_arduino_for_editing)(type KiCad)(uri "$(KIPRJMOD)/../mysensors_arduino.pretty")(options "")(descr ""))
-  (lib (name mysensors_handsoldering_for_editing)(type KiCad)(uri "$(KIPRJMOD)/../mysensors_handsoldering.pretty")(options "")(descr ""))
-  (lib (name mysensors_radios_for_editing)(type KiCad)(uri "$(KIPRJMOD)/../mysensors_radios.pretty")(options "")(descr ""))
-)

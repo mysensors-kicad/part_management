@@ -6,26 +6,36 @@ to your project. The path must be named **MYSLOCAL** and it should point out the
 As KiCad currently does not support symbols for it's github plugin you have to clone the symbols git explicitly.
 So, if you have cloned your symbols to **~/gits/GitHub/mysensors-kicad/mysensors_symbols** you should create the path
 **MYSLOCAL** and point it to **~/gits/GitHub/mysensors-kicad**. You only need to do this once and it is done in the main
-KiCad app under **Preferences** - **Configure Paths**.
+KiCad app under **Preferences** - **Configure Paths**. Obviously this means you also need to manually *pull* any
+updates in the symbol library in order to receive the updates to your computer.
 
 The edit_parts.pro project is preconfigured to reference the symbol libraries as mentioned above but it will also
-have to be updated when new symbol libraries are created as these are listed in the project file itself.
-You can add new libraries using the schematic library editor and via **Preferences** and **Component libraries**.
+expect that you have globally defined paths to the footprint libraries. Having the paths globally applied free you
+from the hassle of managing the MySensors libraries for each and every project you manage.
 
-Project specific footprint libraries have been added for this project in order to distinguish footprints you want to
-edit from footprints managed by the KiCad github plugin (if you have set up your environment to reference those).
-These libraries have received the **_for_editing** suffix in order to make this distinction and they are expected to
-reside **next to** this project. That is, you are expected to clone all the github projects next to each other.
-Unfortunately, the footprint library manager does not adhere to the user-created **MYSLOCAL** variable
-so we have to reference the footprint libraries relative to the project instead.
+You set up the footprint repositories like this:
+Add libraries using the Footprint Libraries Wizard and select GitHub repository but do **not** check the
+*Save a local copy to:* box.
 
-If you want to add new footprint libraries to this project for editing (and you shoud if you have added new footprint
-libraries), edit the **fp-lib-table** file. Also note that you will need to add the GitHub repository using the KiCad Footprint
-libraries wizard if you also want to use those.
+Edit your global fp-lib-table (on Linux systems this is located in *~/.config/kicad/fp-lib-table*) and locate the entries
+for the newly added libraries. They should look something like this:
+```
+  (lib (name mysensors_handsoldering)(type Github)(uri https://github.com/mysensors-kicad/mysensors_handsoldering.pretty)(options allow_pretty_writing_to_this_dir=${HOME}/gits/GitHub/mysensors-kicad/mysensors_handsoldering.pretty)(descr "Various footprints adapted for handsoldering"))
+  (lib (name mysensors_radios)(type Github)(uri https://github.com/mysensors-kicad/mysensors_radios.pretty)(options allow_pretty_writing_to_this_dir=${HOME}/gits/GitHub/mysensors-kicad/mysensors_radios.pretty)(descr "RF modules supported by MySensors"))
+  (lib (name mysensors_arduino)(type Github)(uri https://github.com/mysensors-kicad/mysensors_arduino.pretty)(options "")(descr ""))
+```
+Add the following variable to the options string (note that ${HOME} is probably a Linux specific variable, you can change this to something that applies to your environment):
+allow_pretty_writing_to_this_dir=${HOME}/<path-to-local-library-dir.pretty
 
-For your own projects, it is highly recommended that you only reference the GitHub repositories as those paths can be
-made more environment independent. These can be added to your global foot print search paths (selectable in the
-footprint libraries wizard). Note that you still need to use the **MYSLOCAL** variable to reference the symbols if you
-want to simplify other MySensor "users" to use/view your design.
+**You also need to create the path you specify here.**
+
+You may also if you like, add a description to the added libraries. When finished it could look something like this:
+```
+  (lib (name mysensors_arduino)(type Github)(uri https://github.com/mysensors-kicad/mysensors_arduino.pretty)(options "allow_pretty_writing_to_this_dir=${HOME}/gits/GitHub/mysensors-kicad/mysensors_arduino.pretty")(descr "Arduino footprints"))
+  (lib (name mysensors_handsoldering)(type Github)(uri https://github.com/mysensors-kicad/mysensors_handsoldering.pretty)(options "allow_pretty_writing_to_this_dir=${HOME}/gits/GitHub/mysensors-kicad/mysensors_handsoldering.pretty")(descr "Various footprints adapted for handsoldering"))
+  (lib (name mysensors_radios)(type Github)(uri https://github.com/mysensors-kicad/mysensors_radios.pretty)(options "allow_pretty_writing_to_this_dir=${HOME}/gits/GitHub/mysensors-kicad/mysensors_radios.pretty")(descr "RF modules supported by MySensors"))
+```
+Now, any changes you make to the footprints in these libraries will be saved locally to the path you have specified.
+If you are the library maintainer, you can clone the repository directly to this path in order to simplify repository management.
 
 
