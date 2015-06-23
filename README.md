@@ -8,6 +8,8 @@ So, if you have cloned your symbols to **~/gits/GitHub/mysensors-kicad/mysensors
 **MYSLOCAL** and point it to **~/gits/GitHub/mysensors-kicad**. You only need to do this once and it is done in the main
 KiCad app under **Preferences** - **Configure Paths**. Obviously this means you also need to manually *pull* any
 updates in the symbol library in order to receive the updates to your computer.
+On Windows, KiCad does not permit free-text entry to this location. Instead you have to edit your environment variables
+and add a "User variable" named **MYSLOCAL** instead (with the appropriate value).
 
 The edit_parts.pro project is preconfigured to reference the symbol libraries as mentioned above but it will also
 expect that you have globally defined paths to the footprint libraries. Having the paths globally applied free you
@@ -17,7 +19,8 @@ You set up the footprint repositories like this:
 Add libraries using the Footprint Libraries Wizard and select GitHub repository but do **not** check the
 *Save a local copy to:* box.
 
-Edit your global fp-lib-table (on Linux systems this is located in *~/.config/kicad/fp-lib-table*) and locate the entries
+Edit your global fp-lib-table (on **Linux** systems this is located in *~/.config/kicad/fp-lib-table*, on **Windows**,
+it is typically *C:\Users\<user>\AppData\Roaming\kicad\fp-lib-table*) and locate the entries
 for the newly added libraries. They should look something like this:
 ```
   (lib (name mysensors_handsoldering)(type Github)(uri https://github.com/mysensors-kicad/mysensors_handsoldering.pretty)(options allow_pretty_writing_to_this_dir=${HOME}/gits/GitHub/mysensors-kicad/mysensors_handsoldering.pretty)(descr "Various footprints adapted for handsoldering"))
