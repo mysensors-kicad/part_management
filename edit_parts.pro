@@ -63,5 +63,6 @@ LibName33=mysensors_network
 LibName34=mysensors_radios
 LibName35=mysensors_regulators
 LibName36=mysensors_security
+LibName37=mysensors_sensors
 [general]
 version=1
