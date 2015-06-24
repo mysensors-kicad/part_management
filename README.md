@@ -42,6 +42,7 @@ You may also if you like, add a description to the added libraries. When finishe
   (lib (name mysensors_radios)(type Github)(uri ${MYSGITHUB}/mysensors_radios.pretty)(options "allow_pretty_writing_to_this_dir=${KIPRJMOD}/cow-footprints.pretty")(descr "RF modules supported by MySensors"))
   (lib (name mysensors_connectors)(type Github)(uri ${MYSGITHUB}/mysensors_connectors.pretty)(options "allow_pretty_writing_to_this_dir=${KIPRJMOD}/cow-footprints.pretty")(descr "Connector footprint modules used by MySensors"))
   (lib (name mysensors_leds)(type Github)(uri ${MYSGITHUB}/mysensors_leds.pretty)(options "allow_pretty_writing_to_this_dir=${KIPRJMOD}/cow-footprints.pretty")(descr "LED footprint modules used by MySensors"))
+  (lib (name mysensors_network)(type Github)(uri ${MYSGITHUB}/mysensors_network.pretty)(options "allow_pretty_writing_to_this_dir=${KIPRJMOD}/cow-footprints.pretty")(descr "Network device footprints used by MySensors"))
   (lib (name mysensors_obscurities)(type Github)(uri ${MYSGITHUB}/mysensors_obscurities.pretty)(options "allow_pretty_writing_to_this_dir=${KIPRJMOD}/cow-footprints.pretty")(descr "RF modules supported by MySensors"))
 ```
 
