@@ -26,8 +26,8 @@ it is typically *C:\Users\<user>\AppData\Roaming\kicad\fp-lib-table*, and on Mac
 They should look something like this:
 
 ```
-  (lib (name mysensors_handsoldering)(type Github)(uri ${MYSGITHUB}/mysensors_handsoldering.pretty)(options allow_pretty_writing_to_this_dir=${MYSLOCAL}/mysensors_handsoldering.pretty)(descr "Various footprints adapted for handsoldering"))
-  (lib (name mysensors_radios)(type Github)(uri ${MYSGITHUB}/mysensors_radios.pretty)(options allow_pretty_writing_to_this_dir=${MYSLOCAL}/mysensors_radios.pretty)(descr "RF modules supported by MySensors"))
+  (lib (name mysensors_handsoldering)(type Github)(uri ${MYSGITHUB}/mysensors_handsoldering.pretty)(options allow_pretty_writing_to_this_dir=${KIPRJMOD}/mysensors_handsoldering.pretty)(descr "Various footprints adapted for handsoldering"))
+  (lib (name mysensors_radios)(type Github)(uri ${MYSGITHUB}/mysensors_radios.pretty)(options allow_pretty_writing_to_this_dir=${KIPRJMOD}/mysensors_radios.pretty)(descr "RF modules supported by MySensors"))
   (lib (name mysensors_arduino)(type Github)(uri ${MYSGITHUB}/mysensors_arduino.pretty)(options "")(descr ""))
 ```
 Add the following variable to the options string (note that ${HOME} is probably a Linux specific variable, you can change this to something that applies to your environment):
@@ -37,15 +37,14 @@ allow_pretty_writing_to_this_dir=${HOME}/<path-to-local-library-dir.pretty
 
 You may also if you like, add a description to the added libraries. When finished it should look something like this:
 ```
-  (lib (name mysensors_arduino)(type Github)(uri ${MYSGITHUB}mysensors_arduino.pretty)(options "allow_pretty_writing_to_this_dir=${MYSLOCAL}/mysensors_arduino.pretty")(descr "Arduino footprints"))
-  (lib (name mysensors_handsoldering)(type Github)(uri ${MYSGITHUB}/mysensors_handsoldering.pretty)(options "allow_pretty_writing_to_this_dir=${MYSLOCAL}/mysensors_handsoldering.pretty")(descr "Various footprints adapted for handsoldering"))
-  (lib (name mysensors_radios)(type Github)(uri ${MYSGITHUB}/mysensors_radios.pretty)(options "allow_pretty_writing_to_this_dir=${MYSLOCAL}/mysensors_radios.pretty")(descr "RF modules supported by MySensors"))
-  (lib (name mysensors_connectors)(type Github)(uri ${MYSGITHUB}/mysensors_connectors.pretty)(options "allow_pretty_writing_to_this_dir=${MYSLOCAL}/mysensors_connectors.pretty")(descr "Connector footprint modules used by MySensors"))
-  (lib (name mysensors_leds)(type Github)(uri ${MYSGITHUB}/mysensors_leds.pretty)(options "allow_pretty_writing_to_this_dir=${MYSLOCAL}/mysensors_leds.pretty")(descr "LED footprint modules used by MySensors"))
-  (lib (name mysensors_obscurities)(type Github)(uri ${MYSGITHUB}/mysensors_obscurities.pretty)(options "allow_pretty_writing_to_this_dir=${MYSLOCAL}/mysensors_obscurities.pretty")(descr "RF modules supported by MySensors"))
+  (lib (name mysensors_arduino)(type Github)(uri ${MYSGITHUB}mysensors_arduino.pretty)(options "allow_pretty_writing_to_this_dir=${KIPRJMOD}/mysensors_arduino.pretty")(descr "Arduino footprints"))
+  (lib (name mysensors_handsoldering)(type Github)(uri ${MYSGITHUB}/mysensors_handsoldering.pretty)(options "allow_pretty_writing_to_this_dir=${KIPRJMOD}/mysensors_handsoldering.pretty")(descr "Various footprints adapted for handsoldering"))
+  (lib (name mysensors_radios)(type Github)(uri ${MYSGITHUB}/mysensors_radios.pretty)(options "allow_pretty_writing_to_this_dir=${KIPRJMOD}/cow-footprints.pretty")(descr "RF modules supported by MySensors"))
+  (lib (name mysensors_connectors)(type Github)(uri ${MYSGITHUB}/mysensors_connectors.pretty)(options "allow_pretty_writing_to_this_dir=${KIPRJMOD}/cow-footprints.pretty")(descr "Connector footprint modules used by MySensors"))
+  (lib (name mysensors_leds)(type Github)(uri ${MYSGITHUB}/mysensors_leds.pretty)(options "allow_pretty_writing_to_this_dir=${KIPRJMOD}/cow-footprints.pretty")(descr "LED footprint modules used by MySensors"))
+  (lib (name mysensors_obscurities)(type Github)(uri ${MYSGITHUB}/mysensors_obscurities.pretty)(options "allow_pretty_writing_to_this_dir=${KIPRJMOD}/cow-footprints.pretty")(descr "RF modules supported by MySensors"))
 ```
 
 Now, any changes you make to the footprints in these libraries will be saved locally to the path you have specified.
-If you are the library maintainer, you can clone the repository directly to this path in order to simplify repository management.
 
-
+Finally, the associated MySensors 3dshapes are available at https://github.com/mysensors-kicad/mysensors.3dshapes that describes how to reference them from your project.
