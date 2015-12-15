@@ -37,7 +37,7 @@ allow_pretty_writing_to_this_dir=${HOME}/<path-to-local-library-dir.pretty
 
 You may also if you like, add a description to the added libraries. When finished it should look something like this:
 ```
-  (lib (name mysensors_arduino)(type Github)(uri ${MYSGITHUB}mysensors_arduino.pretty)(options "allow_pretty_writing_to_this_dir=${KIPRJMOD}/mysensors_arduino.pretty")(descr "Arduino footprints"))
+  (lib (name mysensors_arduino)(type Github)(uri ${MYSGITHUB}/mysensors_arduino.pretty)(options "allow_pretty_writing_to_this_dir=${KIPRJMOD}/mysensors_arduino.pretty")(descr "Arduino footprints"))
   (lib (name mysensors_handsoldering)(type Github)(uri ${MYSGITHUB}/mysensors_handsoldering.pretty)(options "allow_pretty_writing_to_this_dir=${KIPRJMOD}/mysensors_handsoldering.pretty")(descr "Various footprints adapted for handsoldering"))
   (lib (name mysensors_radios)(type Github)(uri ${MYSGITHUB}/mysensors_radios.pretty)(options "allow_pretty_writing_to_this_dir=${KIPRJMOD}/cow-footprints.pretty")(descr "RF modules supported by MySensors"))
   (lib (name mysensors_connectors)(type Github)(uri ${MYSGITHUB}/mysensors_connectors.pretty)(options "allow_pretty_writing_to_this_dir=${KIPRJMOD}/cow-footprints.pretty")(descr "Connector footprint modules used by MySensors"))
